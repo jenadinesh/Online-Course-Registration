@@ -1,0 +1,57 @@
+{% extends 'common.html' %}
+{% block common %}
+    <br>
+    {% include 'student_navbar.html' %}
+    {% load static %}
+<style>body{background-color: lightblue}
+#ac{
+    text-align: center;
+    background-color: darkorange;
+    color: wheat;
+    font-family: "Arial Black";
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 250px;
+}</style>
+    <table >
+    <tbody>
+    <tr>
+        <th>
+            <img src="{% static 'images/student-home.png' %}"  height="400" style="background-color:lightblue" >
+        </th>
+        <th>
+          <h1 id="ac">Available Courses</h1>
+            {% for x in data %}
+            <table  border="0" style="margin-left: 250px;background-color: darkcyan;width: 250px;color: black"  >
+                <tr>
+                    <th>Course :</th>
+                    <th>{{ x.name }}</th>
+                </tr>
+                 <tr>
+                    <th>Faculty :</th>
+                    <th>{{ x.faculty }}</th>
+                </tr>
+                <tr>
+                    <th>Date:</th>
+                    <th>{{ x.date }}</th>
+                </tr>
+                <tr>
+                    <th>Time:</th>
+                    <th>{{ x.time }}</th>
+                </tr>
+                <tr>
+                    <th>Course Fee:</th>
+                    <th>{{ x.fee }}</th>
+                </tr>
+                <tr>
+                    <th>Duration:</th>
+                    <th>{{ x.duration }}</th>
+                </tr>
+            </table>
+                <br><br>
+            {% endfor %}
+        </th>
+    </tr>
+    </tbody>
+    </table>
+{% endblock %}
